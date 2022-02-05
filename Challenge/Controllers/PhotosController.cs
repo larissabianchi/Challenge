@@ -6,41 +6,45 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Challenge.Controllers
 {
-    [Route("photos")]
+    [Route("[controller]/[action]")]
     [ApiController]
     public class PhotosController : ControllerBase
     {
         static readonly IPhotoRepository repository = new PhotoRepository();
 
+        [Route("/photos")]
         public IEnumerable<Photo> GetAllPhotos()
         {
             return repository.GetAll();
         }
 
-        //public Photo GetPhotoById(int id)
-        //{
-        //    Photo item = repository.Get(id);
+        [Route("/photos/id/{id}")]
+        public Photo GetPhotoById(int id)
+        {
+            Photo item = repository.Get(id);
 
-        //    if(item == null)
-        //    {
-        //        //throw new HttpResponseException(HttpStatusCode.NotFound);
-        //    }
+            if(item == null)
+            {
+                //throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
 
-        //    return item;
-        //}
+            return item;
+        }
 
-        //public IEnumerable<Photo> GetPhotoByAlbumId(int albumId)
-        //{
-        //    return repository.GetAll().Where(
-        //        photo => photo.AlbumId == albumId    
-        //    );
-        //}
+        [Route("/photos/albumId/{id}")]
+        public IEnumerable<Photo> GetPhotoByAlbumId(int id)
+        {
+            return repository.GetAll().Where(
+                photo => photo.AlbumId == id    
+            );
+        }
 
-        //public IEnumerable<Photo> GetPhotoByTitle(string title)
-        //{
-        //    return repository.GetAll().Where(
-        //        photo => string.Equals(photo.Title, title, StringComparison.OrdinalIgnoreCase) 
-        //    );
-        //}
+        [Route("/photos/title/{title}")]
+        public IEnumerable<Photo> GetPhotoByTitle(string title)
+        {
+            return repository.GetAll().Where(
+                photo => string.Equals(photo.Title, title, StringComparison.OrdinalIgnoreCase) 
+            );
+        }
     }
 }

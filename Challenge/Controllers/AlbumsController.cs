@@ -6,41 +6,45 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Challenge.Controllers
 {
-    [Route("albums")]
+    [Route("[controller]/[action]")]
     [ApiController]
     public class AlbumsController : ControllerBase
     {
         static readonly IAlbumRepository repository = new AlbumRepository();
-        
+                
+        [Route("/albums")]
         public IEnumerable<Album> GetAllAlbums()
         {
             return repository.GetAll();
         }
 
-        //public Album GetAlbumById(int id)
-        //{
-        //    Album item = repository.Get(id);
+        [Route("/albums/id/{id}")]
+        public Album GetAlbumById(int id)
+        {
+            Album item = repository.Get(id);
 
-        //    if (item == null)
-        //    {
-        //        //throw new HttpResponseException(HttpStatusCode.NotFound);
-        //    }
+            if (item == null)
+            {
+                //throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
 
-        //    return item;
-        //}
+            return item;
+        }
 
-        //public IEnumerable<Album> GetAlbumByTitle(string title)
-        //{
-        //    return repository.GetAll().Where(
-        //        album => string.Equals(album.Title, title, StringComparison.OrdinalIgnoreCase)    
-        //    );
-        //}
+        [Route("/albums/title/{title}")]
+        public IEnumerable<Album> GetAlbumByTitle(string title)
+        {
+            return repository.GetAll().Where(
+                album => string.Equals(album.Title, title, StringComparison.OrdinalIgnoreCase)    
+            );
+        }
 
-        //public IEnumerable<Album> GetAlbumByUserId(int id)
-        //{
-        //    return repository.GetAll().Where(
-        //        album => album.UserId == id
-        //    );
-        //}
+        [Route("/albums/userId/{id}")]
+        public IEnumerable<Album> GetAlbumByUserId(int id)
+        {
+            return repository.GetAll().Where(
+                album => album.UserId == id
+            );
+        }
     }
 }
