@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nCnGOLKnRtDMDSaM2dXBALeqmY90e6heG5/Sim4aUuySrGJcJsc8D0xDquJ1OrLVW3vGGVw84wAWpt5jN7oMOw==",
+  "dgSpecHash": "RrUQJJ4STBi7fpa/GmGyULDAFXyI6lha9FBkPI35WS/qQfUV82bCawqnJBNuedsPNxfqWhoCM10WlyngkLInYA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\laris\\OneDrive\\Área de Trabalho\\Challenge\\Challenge\\Challenge.csproj",
+  "projectFilePath": "C:\\Users\\laris\\OneDrive\\Área de Trabalho\\Cox Automotive\\Challenge\\Challenge\\Challenge.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\laris\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.7\\microsoft.aspnet.webapi.client.5.2.7.nupkg.sha512",
     "C:\\Users\\laris\\.nuget\\packages\\microsoft.aspnet.webapi.core\\5.2.7\\microsoft.aspnet.webapi.core.5.2.7.nupkg.sha512",

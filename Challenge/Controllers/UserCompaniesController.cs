@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Challenge.Controllers
 {
-    [Route("UserCompaniesController")]
+    [Route("userCompany")]
     [ApiController]
     public class UserCompaniesController : ControllerBase
     {
