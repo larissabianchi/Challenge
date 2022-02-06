@@ -19,18 +19,12 @@ namespace Challenge.Repositories
 
                 foreach (var result in photo)
                 {
-                    var albumId = result.albumId;
-                    var id = result.id;
-                    var title = result.title;
-                    var url = result.url;
-                    var thumbnailUrl = result.thumbnailUrl;
-
                     Add(new Photo{ 
-                        AlbumId = albumId, 
-                        Id = id, 
-                        Title = title, 
-                        Url = url, 
-                        ThumbnailUrl = thumbnailUrl 
+                        AlbumId = result.albumId, 
+                        Id = result.id, 
+                        Title = result.title, 
+                        Url = result.url, 
+                        ThumbnailUrl = result.thumbnailUrl 
                     });
                 }
             }

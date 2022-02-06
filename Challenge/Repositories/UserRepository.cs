@@ -21,56 +21,36 @@ namespace Challenge.Repositories
                 dynamic user = JsonConvert.DeserializeObject(json);
 
                 foreach (var result in user)
-                {
-                    var id = result.id;
-                    var name = result.name;
-                    var username = result.username;
-                    var email = result.email;
-                    
-                    var addStreet = result.address.street;
-                    var addSuite = result.address.suite;
-                    var addCity = result.address.city;
-                    var addZipcode = result.address.zipcode;
-
-                    var addGeoLat = result.address.geo.lat;
-                    var addGeoLng = result.address.geo.lng;
-
-                    var phone = result.phone;
-                    var website = result.website;
-
-                    var compName = result.company.name;
-                    var compCatchPhrase = result.company.catchPhrase;
-                    var compBs = result.company.bs;
-
+                { 
                     Add(new User
                     {
-                        Id = id,
-                        Name = name,
-                        Username = username,
-                        Email = email,
-                        Phone = phone,
-                        Website = website
+                        Id = result.id,
+                        Name = result.name,
+                        Username = result.username,
+                        Email = result.email,
+                        Phone = result.phone,
+                        Website = result.website
                     }) ;
 
                     userAddresses.Add(new UserAddress
                     {
-                        Street = addStreet,
-                        Suite = addSuite,
-                        City = addCity,
-                        Zipcode = addZipcode
+                        Street = result.address.street,
+                        Suite = result.address.suite,
+                        City = result.address.city,
+                        Zipcode = result.address.zipcode
                     });
 
                     userAddressGeos.Add(new UserAddressGeo
                     {
-                        Lat = addGeoLat,
-                        Lng = addGeoLng
+                        Lat = result.address.geo.lat,
+                        Lng = result.address.geo.lng
                     });
 
                     userCompanies.Add(new UserCompany
                     {
-                        Name = compName,
-                        CatchPhrase = compCatchPhrase,
-                        Bs = compBs
+                        Name = result.company.name,
+                        CatchPhrase = result.company.catchPhrase,
+                        Bs = result.company.bs
                     });
                 }
             }

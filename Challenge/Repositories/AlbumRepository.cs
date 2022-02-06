@@ -19,14 +19,10 @@ namespace Challenge.Repositories
 
                 foreach (var result in album)
                 {
-                    var userId = result.userId;
-                    var id = result.id;    
-                    var title = result.title;
-
                     Add(new Album { 
-                        UserId = userId, 
-                        Id = id, 
-                        Title = title 
+                        UserId = result.userId, 
+                        Id = result.id, 
+                        Title = result.title 
                     });
                 }
             }
