@@ -21,29 +21,21 @@ namespace Challenge.Repositories
                 dynamic user = JsonConvert.DeserializeObject(json);
 
                 foreach (var result in user)
-                { 
-                    Add(new User
+                {   
+                    userAddressGeos.Add(new UserAddressGeo
                     {
-                        Id = result.id,
-                        Name = result.name,
-                        Username = result.username,
-                        Email = result.email,
-                        Phone = result.phone,
-                        Website = result.website
-                    }) ;
+                        Lat = result.address.geo.lat,
+                        Lng = result.address.geo.lng
+                    });
 
                     userAddresses.Add(new UserAddress
                     {
                         Street = result.address.street,
                         Suite = result.address.suite,
                         City = result.address.city,
-                        Zipcode = result.address.zipcode
-                    });
+                        Zipcode = result.address.zipcode,
 
-                    userAddressGeos.Add(new UserAddressGeo
-                    {
-                        Lat = result.address.geo.lat,
-                        Lng = result.address.geo.lng
+                        Geo = userAddressGeos
                     });
 
                     userCompanies.Add(new UserCompany
@@ -52,6 +44,21 @@ namespace Challenge.Repositories
                         CatchPhrase = result.company.catchPhrase,
                         Bs = result.company.bs
                     });
+
+                    Add(new User
+                    {
+                        Id = result.id,
+                        Name = result.name,
+                        Username = result.username,
+                        Email = result.email,
+
+                        Address = userAddresses,
+
+                        Phone = result.phone,
+                        Website = result.website,
+
+                        Company = userCompanies
+                    }) ;                      
                 }
             }
         }
