@@ -18,10 +18,5 @@ namespace Challenge.Repositories
 
             return item;
         }
-
-        public IEnumerable<UserAddress> GetAll()
-        {
-            return userAddresses;
-        }
     }
 }

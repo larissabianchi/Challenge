@@ -18,48 +18,52 @@ namespace Challenge.Repositories
             {
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
                 var json = webClient.DownloadString("https://jsonplaceholder.typicode.com/users");
-                dynamic user = JsonConvert.DeserializeObject(json);
+                dynamic users = JsonConvert.DeserializeObject(json);
 
-                foreach (var result in user)
-                {   
-                    userAddressGeos.Add(new UserAddressGeo
-                    {
-                        Lat = result.address.geo.lat,
-                        Lng = result.address.geo.lng
-                    });
+                int id = 0;
 
-                    userAddresses.Add(new UserAddress
-                    {
-                        Street = result.address.street,
-                        Suite = result.address.suite,
-                        City = result.address.city,
-                        Zipcode = result.address.zipcode,
-
-                        Geo = userAddressGeos
-                    });
-
-                    userCompanies.Add(new UserCompany
-                    {
-                        Name = result.company.name,
-                        CatchPhrase = result.company.catchPhrase,
-                        Bs = result.company.bs
-                    });
+                foreach (var user in users)
+                {
+                    id = user.id - 1;//a posição do array inicia em 0 e os registros em 1.
 
                     Add(new User
                     {
-                        Id = result.id,
-                        Name = result.name,
-                        Username = result.username,
-                        Email = result.email,
+                        Id = user.id,
+                        Name = user.name,
+                        Username = user.username,
+                        Email = user.email,
 
                         Address = userAddresses,
 
-                        Phone = result.phone,
-                        Website = result.website,
+                        Phone = user.phone,
+                        Website = user.website,
 
                         Company = userCompanies
                     }) ;                      
                 }
+
+                userAddressGeos.Add(new UserAddressGeo
+                {
+                    Lat = users[id].address.geo.lat,
+                    Lng = users[id].address.geo.lng
+                });
+
+                userAddresses.Add(new UserAddress
+                {
+                    Street = users[id].address.street,
+                    Suite = users[id].address.suite,
+                    City = users[id].address.city,
+                    Zipcode = users[id].address.zipcode,
+
+                    Geo = userAddressGeos
+                });
+
+                userCompanies.Add(new UserCompany
+                {
+                    Name = users[id].company.name,
+                    CatchPhrase = users[id].company.catchPhrase,
+                    Bs = users[id].company.bs
+                });
             }
         }
 

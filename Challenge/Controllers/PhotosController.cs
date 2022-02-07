@@ -25,7 +25,7 @@ namespace Challenge.Controllers
 
             if(item == null)
             {
-                //throw new HttpResponseException(HttpStatusCode.NotFound);
+                throw new Exception("Sorry, we don't find the photo " + id);
             }
 
             return item;
