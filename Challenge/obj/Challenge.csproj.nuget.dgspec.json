@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\laris\\OneDrive\\Área de Trabalho\\Cox Automotive\\Challenge\\Challenge\\Challenge.csproj": {}
+    "C:\\Users\\laris\\OneDrive\\Área de Trabalho\\Challenge\\Challenge\\Challenge.csproj": {}
   },
   "projects": {
-    "C:\\Users\\laris\\OneDrive\\Área de Trabalho\\Cox Automotive\\Challenge\\Challenge\\Challenge.csproj": {
+    "C:\\Users\\laris\\OneDrive\\Área de Trabalho\\Challenge\\Challenge\\Challenge.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\laris\\OneDrive\\Área de Trabalho\\Cox Automotive\\Challenge\\Challenge\\Challenge.csproj",
+        "projectUniqueName": "C:\\Users\\laris\\OneDrive\\Área de Trabalho\\Challenge\\Challenge\\Challenge.csproj",
         "projectName": "Challenge",
-        "projectPath": "C:\\Users\\laris\\OneDrive\\Área de Trabalho\\Cox Automotive\\Challenge\\Challenge\\Challenge.csproj",
+        "projectPath": "C:\\Users\\laris\\OneDrive\\Área de Trabalho\\Challenge\\Challenge\\Challenge.csproj",
         "packagesPath": "C:\\Users\\laris\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\laris\\OneDrive\\Área de Trabalho\\Cox Automotive\\Challenge\\Challenge\\obj\\",
+        "outputPath": "C:\\Users\\laris\\OneDrive\\Área de Trabalho\\Challenge\\Challenge\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\laris\\AppData\\Roaming\\NuGet\\NuGet.Config",
